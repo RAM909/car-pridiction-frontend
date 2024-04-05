@@ -6,7 +6,7 @@ import './styles.css';
 
 
 function App() {
-  const [selectedModel, setSelectedModel] = useState('Random Forest Regressor');
+  // const [selectedModel, setSelectedModel] = useState('Random Forest Regressor');
   const [kmDriven, setKmDriven] = useState(0);
   const [year, setYear] = useState(0);
   const [fuelType, setFuelType] = useState('Petrol');
@@ -17,6 +17,7 @@ function App() {
   const [prediction, setPrediction] = useState(null);
   const maxYear = 30;
   const maxdriven = 1000000;
+  const selectedModel = "AdaBoost Regressor"
 
 
   const handleSubmit = () => {
@@ -53,15 +54,15 @@ function App() {
 
       <h1>Car Selling Price Prediction</h1>
       <div>
-        <label>
-          Select the Machine Learning model:
+        {/* <label>
+           Machine Learning model:AdaBoost Regressor 
           <select value={selectedModel} onChange={e => setSelectedModel(e.target.value)}>
             <option value="AdaBoost Regressor">AdaBoost Regressor</option>
             <option value="Random Forest Regressor">Random Forest Regressor</option>
             <option value="Bagging Regressor">Bagging Regressor</option>
             <option value="AdaBoost Regressor 2">AdaBoost Regressor 2</option>
           </select>
-        </label>
+        </label> */}
       </div>
       <div>
         <label>
@@ -71,6 +72,7 @@ function App() {
             value={kmDriven}
             onChange={e => setKmDriven(Math.min(parseInt(e.target.value), maxdriven))}
             max={maxdriven}
+            min={0}
           />
         </label>
       </div>
@@ -82,6 +84,7 @@ function App() {
             value={year}
             onChange={e => setYear(Math.min(parseInt(e.target.value), maxYear))}
             max={maxYear}
+            min={0}
           />
         </label>
       </div>
